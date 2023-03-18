@@ -1,4 +1,5 @@
 defmodule HelloWeb.Router do
+  alias HelloWeb.UserController
   use HelloWeb, :router
 
   pipeline :browser do
@@ -17,6 +18,7 @@ defmodule HelloWeb.Router do
   scope "/", HelloWeb do
     pipe_through :browser
 
+    get "/users", UserController, :index
     get "/hello/:name", HelloController, :world
     get "/", PageController, :home
   end

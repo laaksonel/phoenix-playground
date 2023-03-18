@@ -21,3 +21,15 @@
     </.link>
   </:action>
 </.table>
+<!-- Another way of doing this -->
+<h1>Listing Users</h1>
+
+<table>
+  <%= for user <- @users do %>
+    <tr>
+      <%!-- <td><%= first_name(user) %> (<%= user.id %>)</td> --%>
+      <td><.test_name name={first_name(user.name)} /> (<%= user.id %>)</td>
+      <.link navigate={~p"/users/#{user.id}"}>Show</.link>
+    </tr>
+  <% end %>
+</table>
