@@ -20,10 +20,13 @@ defmodule RumblWeb.Router do
     # get "/users/:id", UserController, :show
 
     get "/", PageController, :home
-    get "/users", UserController, :index
-    post "/users", UserController, :create
-    get "/users/:id", UserController, :show
-    get "/users/new", UserController, :new
+    # get "/users", UserController, :index
+    # post "/users", UserController, :create
+    # get "/users/:id", UserController, :show
+    # get "/users/new", UserController, :new
+
+    # Alternative way to define REST endpoints
+    resources "/users", UserController, only: [:index, :show, :new, :create]
   end
 
   # Other scopes may use custom stacks.
