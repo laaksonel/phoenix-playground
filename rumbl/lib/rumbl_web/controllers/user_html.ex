@@ -25,11 +25,4 @@ defmodule RumblWeb.UserHTML do
     <p><%= @name %></p>
     """
   end
-
-  def user(user)
-
-  def foo(user) do
-    Logger.info(inspect(user))
-    RumblWeb.UserHTML.user(%{ user: user})
-  end
 end
