@@ -1,4 +1,5 @@
 defmodule RumblWeb.UserHTML do
+  require Logger
   alias Rumbl.Accounts
   use RumblWeb, :html
 
@@ -25,9 +26,10 @@ defmodule RumblWeb.UserHTML do
     """
   end
 
-  # def first_name(%Accounts.User{name: name}) do
-  #   name
-  #   |> String.split(" ")
-  #   |> Enum.at(0)
-  # end
+  def user(user)
+
+  def foo(user) do
+    Logger.info(inspect(user))
+    RumblWeb.UserHTML.user(%{ user: user})
+  end
 end

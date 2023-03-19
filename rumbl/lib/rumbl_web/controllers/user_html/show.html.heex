@@ -1,15 +1,20 @@
-<.header>
-  User <%= @user.id %>
-  <:subtitle>This is a user record from your database.</:subtitle>
-  <:actions>
-    <.link href={~p"/users/#{@user}/edit"}>
-      <.button>Edit user</.button>
-    </.link>
-  </:actions>
-</.header>
+<%!-- <.header> --%>
+<%!--   User <%= @user.id %> --%>
+<%!--   <:subtitle>This is a user record from your database.</:subtitle> --%>
+<%!--   <:actions> --%>
+<%!--     <.link href={~p"/users/#{@user}/edit"}> --%>
+<%!--       <.button>Edit user</.button> --%>
+<%!--     </.link> --%>
+<%!--   </:actions> --%>
+<%!-- </.header> --%>
 
-<.list>
-  <:item title="Name"><%= @user.name %></:item>
-</.list>
+<%!-- <.list> --%>
+<%!--   <:item title="Name"><%= @user.name %></:item> --%>
+<%!-- </.list> --%>
 
-<.back navigate={~p"/users"}>Back to users</.back>
+<%!-- <.back navigate={~p"/users"}>Back to users</.back> --%>
+
+<h1>Showing User</h1>
+<.user user={@user} />
+<%!-- <%= user u=@user %> --%>
+
