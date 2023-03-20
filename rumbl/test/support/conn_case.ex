@@ -35,4 +35,30 @@ defmodule RumblWeb.ConnCase do
     Rumbl.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
+
+  @doc """
+  Setup helper that registers and logs in users2.
+
+      setup :register_and_log_in_user2
+
+  It stores an updated connection and a registered user2 in the
+  test context.
+  """
+  def register_and_log_in_user2(%{conn: conn}) do
+    user2 = Rumbl.Accounts2Fixtures.user2_fixture()
+    %{conn: log_in_user2(conn, user2), user2: user2}
+  end
+
+  @doc """
+  Logs the given `user2` into the `conn`.
+
+  It returns an updated `conn`.
+  """
+  def log_in_user2(conn, user2) do
+    token = Rumbl.Accounts2.generate_user2_session_token(user2)
+
+    conn
+    |> Phoenix.ConnTest.init_test_session(%{})
+    |> Plug.Conn.put_session(:user2_token, token)
+  end
 end
