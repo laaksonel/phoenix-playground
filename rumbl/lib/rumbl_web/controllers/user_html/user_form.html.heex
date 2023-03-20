@@ -1,15 +1,11 @@
-<!-- The new way -->
 <.simple_form :let={f} for={@changeset} action={@action}>
+  <!--
   <.error :if={@changeset.action}>
     Oops, something went wrong! Please check the errors below.
   </.error>
+  -->
   <.input field={f[:name]} type="text" label="Name" />
   <:actions>
     <.button>Save User</.button>
   </:actions>
 </.simple_form>
-<!-- The old way -->
-<%= form_for @changeset, Routes.user_path(@conn, :create), fn f -> %>
-  <%= text_input(f, :name, placeholder: "Name") %>
-  <%= submit("Create") %>
-<% end %>
